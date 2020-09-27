@@ -1,0 +1,19 @@
+{% extends 'base.html' %} {% block head %}
+<title>Untitled</title>
+{% endblock %} {% block body %}
+<div class="parent bottom_link mb3">
+  <div class="mt3">
+    <div class="upload">{{ dropzone.create(action='/uploads') }}</div>
+    <h3 class="button ma0 mt1">
+      <a
+        class="f6 grow ma0 no-underline br-pill ph3 pv2 dib white bg-light-purple"
+        href="{{ url_for('results') }}"
+        >Finish</a
+      >
+    </h3>
+  </div>
+</div>
+
+{{ dropzone.style(' border: 4px solid #0087F7; height = auto; min-height: 350px;
+max-width:800px; min-width:500px') }} {{
+dropzone.config(redirect_url=url_for('results')) }} {% endblock %}
