@@ -4,5 +4,5 @@ Dropzone.options.myAwesomeDropzone = {
   uploadMultiple: false,
   maxFiles: 1,
   acceptedFiles: "image/*",
-  dictDefaultMessage: "Drop Images Here To Enhance!",
+  dictDefaultMessage: "Drop an image here to enhance!",
 };
