@@ -1,3 +1,4 @@
+$('#loading').hide()
 Dropzone.options.myAwesomeDropzone = {
   paramName: "file", // The name that will be used to transfer the file
   maxFilesize: 5, // MB
@@ -9,8 +10,12 @@ Dropzone.options.myAwesomeDropzone = {
 
 Dropzone.options.myAwesomeDropzone = {
   init: function () {
-    this.on("complete", function (file) {
-      console.log("Nice")
+    this.on("sending", function (file) {
+      $('#my-awesome-dropzone').hide();
+      $('#loading').show()
+    });
+    this.on("success", function (file) {
+      window.location.href = "./result.html";
     });
 }
 };

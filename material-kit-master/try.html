@@ -31,6 +31,7 @@ The above copyright notice and this permission notice shall be included in all c
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="./assets/demo/demo.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/dropzone.css" />
+    <link href="./assets/css/changes.css">
 </head>
 
 <body class="profile-page sidebar-collapse">
@@ -99,15 +100,18 @@ The above copyright notice and this permission notice shall be included in all c
 <div class="main main-raised">
     <div class="container">
         <div class="section text-center">
-                      <form
-                        action="http://127.0.0.1:6968/getfile"
-                        class="dropzone",
-                        action="POST",
-                        id="my-awesome-dropzone"
-                        style="min-height: 200px; border: 1px solid black"
-                      >
-<!--                         <input type="file" name="file" />-->
-                      </form>
+            <div id="loading">
+                <img id="loading-image" src="assets/img/loader.gif" alt="Loading..." />
+            </div>
+              <form
+                action="http://127.0.0.1:6968/getfile"
+                class="dropzone",
+                action="POST",
+                id="my-awesome-dropzone"
+                style="min-height: 200px; border: 1px solid black"
+              >
+    <!--                         <input type="file" name="file" />-->
+              </form>
         </div>
     </div>
 </div>
