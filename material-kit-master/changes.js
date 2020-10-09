@@ -6,3 +6,11 @@ Dropzone.options.myAwesomeDropzone = {
   acceptedFiles: "image/*",
   dictDefaultMessage: "Drop an image here to enhance!",
 };
+
+Dropzone.options.myAwesomeDropzone = {
+  init: function () {
+    this.on("complete", function (file) {
+      console.log("Nice")
+    });
+}
+};
