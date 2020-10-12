@@ -1,7 +1,5 @@
 import efficientnet.tfkeras
 from tensorflow.keras.models import load_model
-import argparse
-from distutils.util import strtobool
 import os
 from PIL import Image
 import torch
@@ -10,7 +8,7 @@ import torchvision.transforms.functional as TF
 import numpy as np
 from model import PConvUNet
 import cv2
-import matplotlib.pyplot as plt
+os.environ['TF_FORCE_GPU_ALLOW_GROWTH'] = 'true'
 
 
 class Restoration:
