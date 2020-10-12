@@ -11,6 +11,7 @@ import cv2
 os.environ['TF_FORCE_GPU_ALLOW_GROWTH'] = 'true'
 
 
+
 class Restoration:
     def __init__(self, seg_model_path="./patch_detection.h5",
                  restore_model_path="./pretrained_pconv.pth"):
@@ -61,10 +62,13 @@ class Restoration:
         # Loading Input and Mask
         # print("Loading the inputs...")
         org = Image.open(img)
+        org = org.resize((256,256))
         org = TF.to_tensor(org.convert('RGB'))
         mask = Image.open(mask)
         mask = TF.to_tensor(mask.convert('RGB'))
+        inp = np.empty([256,256,3])
         inp = org * mask
+
 
         # Model prediction
         # print("Model Prediction...")
@@ -93,6 +97,7 @@ class Restoration:
         return out
 
     def give_result(self, unrestored_img_path='./temp/input.png', masked_img_path="./temp/temp_mask.jpg"):
+
         self.get_segmented_image(unrestored_img_path)
         restored_img = self.restore(unrestored_img_path, masked_img_path)
         restored_img = np.asarray(restored_img)
